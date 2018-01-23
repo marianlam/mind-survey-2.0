@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mind Survey</title>
+  <script src="_javascript/jspsych-6.0/jspsych.js"></script>
+  <script src="_javascript/jspsych-6.0/plugins/jspsych-text.js"></script>
+  <script src="_javascript/jspsych-6.0/plugins/jspsych-survey-rate-by-dragging.js"></script>
+  <link href="_javascript/jspsych-6.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  <style>
+  #intro p {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  </style>
+</head>
+<body></body>
+<script>
+// create array of character objects
+var characters = [
+  {image_source: "_images/chimpanzee.jpg", image_title: "toby", caption:
+  "A two-year-old chimpanzee living at an outdoor laboratory in Uganda."},
+  {image_source: "_images/delores.jpg", image_title: "delores", caption:
+  "Delores recently passed away at the age of 65. As you complete the survey, "+
+  "please draw upon your own personal beliefs about people who have passed away."},
+  {image_source: "_images/fetus.jpg", image_title: "fetus", caption:
+  "At 7 weeks, a human fetus is almost half an inch long &mdash; roughly "+
+  "the size of a raspberry."},
+  {image_source: "_images/frog.jpg", image_title: "frog", caption: "Found "+
+  "throughout eastern North America, this classic pond frog is medium-sized "+
+  "and green in color. Daily life includes seeking out permanent ponds or "+
+  "slow streams wtih plenty of vegetation."},
+  {image_source: "_images/gerald.jpg", image_title: "gerald", caption:
+  "Gerald has been in a persistent vegetative state (PVS) for the past six "+
+  "months. Although he has severe brain damage &mdash; Gerald does not appear "+
+  "to communicate with others or make purposeful movements &mdash; his basic "+
+  "bodily functions (such as breathing, sleeping, and circulation) are preserved."},
+  {image_source: "_images/god.jpg", image_title: "god", caption: "Many people "+
+  "believe that God is the creator of the universe and the ultimate source of "+
+  "knowledge, power, and love. However, please draw upon your own personal "+
+  "beliefs about God."},
+  {image_source: "_images/kismet.jpg", image_title: "kismet", caption:
+  "Kismet is part of a new class of sociable robots that can engage people in "+
+  "natural interaction. To do this, Kismet perceives a variety of natural "+
+  "social signals from sound and sight, and delivers his own signals back "+
+  "to the human partner through gaze direction, facial expression, body "+
+  "posture, and vocal babbles."},
+  {image_source: "_images/nicholas.jpg", image_title: "nicholas", caption:
+  "A five-month-old baby."},
+  {image_source: "_images/samantha.jpg", image_title: "samantha", caption:
+  "A five-year-old girl who lives with her parents and older sister Jennifer."},
+  {image_source: "_images/sharon.jpg", image_title: "sharon", caption:
+  "A thirty-eight-year-old who works at an advertising agency in Chicago."},
+  {image_source: "_images/springer_spaniel.jpg", image_title: "charlie", caption:
+  "A 3-year-old Springer spaniel and a beloved member of the Graham family."},
+  {image_source: "_images/todd.jpg", image_title: "todd", caption:
+  "A thirty-year-old accountant who lives in New York City."},
+  {image_source: "_images/you.jpg", image_title: "you", caption: "When you "+
+  "look into a mirror, please consider how you, yourself, would compare with "+
+  "the other characters presented."}
+];
+
+var introduction_block = {
+    type: 'text',
+    text: "<div id='intro'><h1>What kinds of things have minds?</h1><p>It's assumed "
+    +"that things simply have more or less of a mind. For this survey, you will be judging "
+    +"18 individual mental capacties for 13 characters. Press any key to begin.</p></div>"
+};
+
+var rating_trials = [
+    {data: {question_id: "expression"}, question: "How capable is each character of conveying thoughts and feelings?"},
+    {data: {question_id: "awareness"}, question: "How capable is each character of having experiences and being aware of things?"},
+    {data: {question_id: "hope"}, question: "How capable is each character of longing or hoping for things?"},
+    {data: {question_id: "embarrassment"}, question: "How capable is each character of experiencing embarrassment?"},
+    {data: {question_id: "empathy"}, question: "How capable is each character of understanding how others are feeling?"},
+    {data: {question_id: "fear"}, question: "How capable is each character of feeling afraid or fearful?"},
+    {data: {question_id: "hunger"}, question: "How capable is each character of feeling hungry?"},
+    {data: {question_id: "joy"}, question: "How capable is each character of experiencing joy?"},
+    {data: {question_id: "memory"}, question: "How capable is each character of remembering things?"},
+    {data: {question_id: "morality"}, question: "How capable is each character of telling right from wrong and choosing to do the right thing?"},
+    {data: {question_id: "pain"}, question: "How capable is each character of experiencing physical or emotional pain?"},
+    {data: {question_id: "personality"}, question: "How capable is each character of having personality traits that make it unique from others?"},
+    {data: {question_id: "attainment"}, question: "How capable is each character of making plans and working towards a goal?"},
+    {data: {question_id: "pleasure"}, question: "How capable is each character of experiencing physical or emotional pleasure?"},
+    {data: {question_id: "pride"}, question: "How capable is each character of experiencing pride?"},
+    {data: {question_id: "anger"}, question: "How capable is each character of experiencing violent or uncontrolled anger?"},
+    {data: {question_id: "self-restraint"}, question: "How capable is each character of exercising self-restraint over desires, emotions, or impulses?"},
+    {data: {question_id: "thought"}, question: "How capable is each character of thinking?"}
+];
+
+var ratings = {
+  timeline: [
+    {
+      type: "rate-by-dragging",
+      title: "Mind Survey",
+      question: jsPsych.timelineVariable('question'),
+      instructions: "Rate all 13 of these characters by arranging them on the scale.",
+      draggables: characters,
+      button_label: "Continue",
+      timing_post_trial: 500,
+      data: jsPsych.timelineVariable('data')
+    }
+  ],
+  timeline_variables: rating_trials,
+  randomize_order: true
+};
+
+jsPsych.init({
+  timeline: [ introduction_block, ratings ]
+});
+</script>
+</html>

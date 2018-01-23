@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+  <script src="script.js"></script>
+  <title>Mind Survey</title>
+  <style>
+  /* general styling rules */
+  body {
+    width: auto;
+    min-width: 1000px;
+    font-family: 'Roboto', sans-serif;
+  }
+  #title {
+    text-align: center;
+    margin: 5% auto -2% auto;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #FF8C00;
+    border-bottom: solid #aaa 2px;
+    width: 62%;
+  }
+  /* center container */
+  #main-content {
+    margin: 0 auto;
+    width: 875px;
+  }
+  #question {
+    text-align: right;
+    float: left;
+    width: 60%;
+    margin: 4.5% 3% 5% -3%;
+    color: #222;
+    margin-bottom: 15px;
+  }
+  #instructions {
+    float: left;
+    width: 30%;
+    margin: 6% 0;
+    padding-left: 4%;
+    border-left: solid #aaa 2px;
+    color: #777;
+    font-size: .9em;
+    margin-bottom: 15px;
+
+  }
+  #scale-container {
+    padding-top: 35%;
+    border-bottom: solid 5px #ccc;
+    border-top: dashed 1px #ccc;
+    border-left: dashed 1px #ccc;
+    border-right: dashed 1px #ccc;
+    height: 285px;
+    position: relative;
+    clear: both;
+  }
+  .character-container {
+    width: 5%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+  }
+  .character-image {
+    pointer-events: all;
+  }
+  .line {
+    width: 48%;
+    height: 100%;
+    border-right: solid 5px #ccc;
+    position: absolute;
+    bottom: -4px;
+    z-index: -10;
+  }
+  img {
+    border: 2px solid #ccc;
+  }
+  #draggable {
+    position: absolute;
+    left: -21px;
+    height: 50px;
+  }
+  #draggable_2 {
+    position: absolute;
+    left: -21px;
+    height: 95px;
+  }
+  #draggable_3 {
+    position: absolute;
+    left: -21px;
+    height: 140px;
+  }
+  #draggable_4 {
+    position: absolute;
+    left: -21px;
+    height: 185px;
+  }
+  #draggable_5 {
+    position: absolute;
+    left: -21px;
+    height: 230px;
+  }
+  #draggable_6 {
+    position: absolute;
+    left: -21px;
+    height: 275px;
+  }
+  #draggable_7 {
+    position: absolute;
+    left: -21px;
+    height: 320px;
+  }
+  #draggable_8 {
+    position: absolute;
+    left: -21px;
+    height: 365px;
+  }
+  #draggable_9 {
+    position: absolute;
+    left: -21px;
+    height: 410px;
+  }
+  #draggable_10 {
+    position: absolute;
+    left: -21px;
+    height: 455px;
+  }
+  #draggable_11 {
+    position: absolute;
+    left: -21px;
+    height: 500px;
+  }
+  #draggable_12 {
+    position: absolute;
+    left: -21px;
+    height: 545px;
+  }
+  #draggable_13 {
+    position: absolute;
+    left: -21px;
+    height: 590px;
+  }
+  .line-label {
+    color: #ccc;
+    float: left;
+    width: 33.3%;
+    position: absolute;
+    bottom: -30px;
+  }
+  #label-1 {
+    left: 0px;
+  }
+  #label-2 {
+    left: 42%;
+  }
+  #label-3 {
+    right: 0px;
+    text-align: right;
+  }
+  #caption {
+    margin: 60px auto;
+    visibility: hidden;
+  }
+  #caption-image {
+    margin-left: 20%;
+    margin-bottom: 60px;
+    float: left;
+    width: 150px;
+    height: 150px;
+  }
+  #caption-div {
+    margin: 1% auto 5% auto;
+    width: 45%;
+    float: left;
+    text-align: left;
+    padding-left: 3%;
+    color: #777;
+  }
+  #caption-div h3 {
+    margin-bottom: -2%;
+    font-family: sans-serif;
+  }
+  </style>
+</head>
+<body>
+  <div id="title"><h1>Mind Survey</h1></div>
+  <div id="main-content">
+    <div id="starter-info">
+      <div id="question"><h2>How capable is this character of conveying thoughts and feelings?</h2></div>
+      <div id="instructions"><h3>Rate all 13 of these characters by arranging them on the scale.</h3></div>
+    </div>
+    <div id="scale-container">
+      <div id="draggable" class="character-container">
+        <img src="_images/frog.jpg" alt="frog" width="100%" class="character-image"
+        data-caption="<h3>A Green Frog</h3><p>Found throughout eastern North
+          America, this classic pond frog is medium-sized and green in color.
+          Daily life includes seeking out permanent ponds or slow streams wtih
+          plenty of vegetation.</p>"/>
+          <div class="line"></div>
+        </div>
+        <div id="draggable_2" class="character-container">
+          <img src="_images/springer_spaniel.jpg" alt="dog" width="100%" class="character-image"
+          data-caption="<h3>Charlie</h3><p>A 3-year-old Springer spaniel and a
+            beloved member of the Graham family.</p>"/>
+            <div class="line"></div>
+          </div>
+          <div id="draggable_3" class="character-container">
+            <img src="_images/chimpanzee.jpg" alt="chimpanzee" width="100%" class="character-image"
+            data-caption="<h3>Toby</h3><p>A two-year-old chimpanzee living at an
+              outdoor laboratory in Uganda.</p>"/>
+              <div class="line"></div>
+            </div>
+            <div id="draggable_4" class="character-container">
+              <img src="_images/kismet.jpg" alt="kismet" width="100%" class="character-image"
+              data-caption="<h3>Kismet</h3><p>Kismet is part of a new class of
+                sociable robots that can engage people in natural interaction.
+                To do this, Kismet perceives a variety of natural social signals
+                from sound and sight, and delivers his own signals back to the
+                human partner through gaze direction, facial expression, body
+                posture, and vocal babbles.</p>"/>
+                <div class="line"></div>
+              </div>
+              <div id="draggable_5" class="character-container">
+                <img src="_images/nicholas.jpg" alt="nicholas" width="100%" class="character-image"
+                data-caption="<h3>Nicholas Gannon</h3><p>A five-month-old baby.</p>"/>
+                <div class="line"></div>
+              </div>
+              <div id="draggable_6" class="character-container">
+                <img src="_images/sharon.jpg" alt="sharon" width="100%" class="character-image"
+                data-caption="<h3>Sharon Harvey</h3><p>A thirty-eight-year-old who
+                  works at an advertising agency in Chicago.</p>"/>
+                  <div class="line"></div>
+                </div>
+                <div id="draggable_7" class="character-container">
+                  <img src="_images/samantha.jpg" alt="samantha" width="100%" class="character-image"
+                  data-caption="<h3>Samantha Hill</h3><p>A five-year-old girl who lives
+                    with her parents and older sister Jennifer.</p>"/>
+                    <div class="line"></div>
+                  </div>
+                  <div id="draggable_8" class="character-container">
+                    <img src="_images/todd.jpg" alt="todd" width="100%" class="character-image"
+                    data-caption="<h3>Todd Billingsly</h3><p>A thirty-year-old accountant
+                      who lives in New York City.</p>"/>
+                      <div class="line"></div>
+                    </div>
+                    <div id="draggable_9" class="character-container">
+                      <img src="_images/fetus.jpg" alt="fetus" width="100%" class="character-image"
+                      data-caption="<h3>A 7 Week Fetus</h3><p>At 7 weeks, a
+                        human fetus is almost half an inch long &mdash; roughly
+                        the size of a raspberry.</p>"/>
+                        <div class="line"></div>
+                      </div>
+                      <div id="draggable_10" class="character-container">
+                        <img src="_images/delores.jpg" alt="delores" width="100%" class="character-image"
+                        data-caption="<h3>Delores Gleitman</h3><p>Delores recently
+                          passed away at the age of 65. As you complete the
+                          survey, please draw upon your own personal beliefs
+                          about people who have passed away.</p>"/>
+                          <div class="line"></div>
+                        </div>
+                        <div id="draggable_11" class="character-container">
+                          <img src="_images/you.jpg" alt="you" width="100%" class="character-image"
+                          data-caption="<h3>You</h3><p>When you look into a mirror, please
+                            consider how you, yourself, would compare with the other
+                            characters presented.</p>"/>
+                            <div class="line"></div>
+                          </div>
+                          <div id="draggable_12" class="character-container">
+                            <img src="_images/god.jpg" alt="god" width="100%" class="character-image"
+                            data-caption="<h3>God</h3><p>Many people believe that
+                              God is the creator of the universe and the ultimate
+                              source of knowledge, power, and love. However,
+                              please draw upon your own personal beliefs about God.</p>"/>
+                              <div class="line"></div>
+                            </div>
+                            <div id="draggable_13" class="character-container">
+                              <img src="_images/gerald.jpg" alt="gerald" width="100%" class="character-image"
+                              data-caption="<h3>Gerald Schiff</h3><p>Gerald has been in a persistent
+                                vegetative state (PVS) for the past six months. Although he has
+                                severe brain damage &mdash; Gerald does not appear to communicate with
+                                others or make purposeful movements &mdash; his basic bodily functions
+                                (such as breathing, sleeping, and circulation) are preserved.</p>"/>
+                                <div class="line"></div>
+                              </div>
+                              <div class="line-label" id="label-1">incapable</div>
+                              <div class="line-label" id="label-2">somewhat capable</div>
+                              <div class="line-label" id="label-3">entirely capable</div>
+                            </div>
+                          </div>
+                          <div id="caption">
+                            <img id="caption-image"></img>
+                            <div id="caption-div"></div>
+                          </div>
+                          <input type="submit" id="next-button" value="continue"</input>
+                        </body>
+                        </html>
